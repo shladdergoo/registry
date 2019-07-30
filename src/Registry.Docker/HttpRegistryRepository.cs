@@ -14,7 +14,7 @@
 
         public HttpRegistryRepository(IHttpClient httpClient)
         {
-            if (httpClient == null) { throw new System.ArgumentNullException(nameof(httpClient)); }
+            if (httpClient == null) { throw new ArgumentNullException(nameof(httpClient)); }
 
             this.httpClient = httpClient;
         }
@@ -25,10 +25,10 @@
             string registryUsername,
             string registryPassword)
         {
-            if (string.IsNullOrWhiteSpace(registry)) { throw new System.ArgumentException("message", nameof(registry)); }
-            if (string.IsNullOrWhiteSpace(repository)) { throw new System.ArgumentException("message", nameof(repository)); }
-            if (string.IsNullOrWhiteSpace(registryUsername)) { throw new ArgumentException("message", nameof(registryUsername)); }
-            if (string.IsNullOrWhiteSpace(registryPassword)) { throw new ArgumentException("message", nameof(registryPassword)); }
+            if (string.IsNullOrWhiteSpace(registry)) { throw new ArgumentNullException(nameof(registry)); }
+            if (string.IsNullOrWhiteSpace(repository)) { throw new ArgumentNullException(nameof(repository)); }
+            if (string.IsNullOrWhiteSpace(registryUsername)) { throw new ArgumentNullException(nameof(registryUsername)); }
+            if (string.IsNullOrWhiteSpace(registryPassword)) { throw new ArgumentNullException(nameof(registryPassword)); }
 
             HttpWebResponse response = this.httpClient
                 .Execute(this.GetTagsRequest(registry, repository, registryUsername, registryPassword));

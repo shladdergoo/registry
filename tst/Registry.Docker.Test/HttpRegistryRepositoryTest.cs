@@ -26,7 +26,7 @@
 
             this.sut = new HttpRegistryRepository(httpClient);
 
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<ArgumentNullException>(() =>
                 this.sut.GetTags(null, "someRepo", "username", "password"));
         }
 
@@ -37,7 +37,7 @@
 
             this.sut = new HttpRegistryRepository(httpClient);
 
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<ArgumentNullException>(() =>
                 this.sut.GetTags("someRegistry", null, "username", "password"));
         }
 
@@ -48,7 +48,7 @@
 
             this.sut = new HttpRegistryRepository(httpClient);
 
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<ArgumentNullException>(() =>
                 this.sut.GetTags("someRegistry", "someRepo", null, "password"));
         }
 
@@ -59,7 +59,7 @@
 
             this.sut = new HttpRegistryRepository(httpClient);
 
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<ArgumentNullException>(() =>
                 this.sut.GetTags("someRegistry", "someRepo", "username", null));
         }
 
